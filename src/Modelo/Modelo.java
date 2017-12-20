@@ -188,6 +188,61 @@ public class Modelo extends JFrame {
         }
         return tablemodel;
     }
+    
+     public DefaultTableModel MostrarCategoria(String categoria) throws ClassNotFoundException, SQLException {
+        con = new Conexion();
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int registros = 0;
+        String[] columNames = {"Código", "Nombre", "Precio", "Categoria","Formato4K"};
+        //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+        //para formar la matriz de datos
+        try {
+            PreparedStatement pstm = con.connect().prepareStatement("SELECT count(*) as total FROM pelicula where categoria=?");
+            pstm.setString(1, categoria);
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        //se crea una matriz con tantas filas y columnas que necesite
+        Object[][] data = new String[registros][5];
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = con.connect().prepareStatement("SELECT * FROM pelicula where categoria=?");
+            pstm.setString(1, categoria);
+            ResultSet res = pstm.executeQuery();
+            
+            int i = 0;
+            while (res.next()) {
+                data[i][0] = res.getString("codigo");
+                data[i][1] = res.getString("nombre");
+                data[i][2] = res.getString("precio");
+                data[i][3] = res.getString("categoria");
+                if(res.getString("formato4k").equals("1")){
+                 data[i][4] = "Sí"  ;
+                }else if(res.getString("formato4k").equals("0")){
+                    data[i][4] = "No"  ;
+                }else{
+                    data[i][4] = "";
+            }
+                 
+                
+                i++;
+            }
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablemodel;
+    }
+    
+    
+    
+    
 
     public DefaultTableModel buscarPelicula(int codigo) {
         con = new Conexion();

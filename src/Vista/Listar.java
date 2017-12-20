@@ -11,6 +11,20 @@ import java.awt.Toolkit;
 
 public class Listar extends javax.swing.JFrame {
 
+    /**
+     * @return the jcategoria
+     */
+    public javax.swing.JComboBox<String> getJcategoria() {
+        return jcategoria;
+    }
+
+    /**
+     * @param jcategoria the jcategoria to set
+     */
+    public void setJcategoria(javax.swing.JComboBox<String> jcategoria) {
+        this.jcategoria = jcategoria;
+    }
+
      public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/logo_cine.png"));
 
@@ -39,6 +53,7 @@ public class Listar extends javax.swing.JFrame {
         popEliminar = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         TblMostrar = new javax.swing.JTable();
+        jcategoria = new javax.swing.JComboBox<>();
         jMenuBar2 = new javax.swing.JMenuBar();
         jAgregar = new javax.swing.JMenu();
         jListar = new javax.swing.JMenu();
@@ -70,6 +85,8 @@ public class Listar extends javax.swing.JFrame {
         TblMostrar.setRowHeight(13);
         jScrollPane1.setViewportView(TblMostrar);
 
+        jcategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mostrar Todos", "Acción", "Animada", "Ciencia Ficción", "Comedia", "Drama", "Musica", "Fantasía", "Romance", "Terror", "Suspense", " " }));
+
         jAgregar.setText("Agregar");
         jMenuBar2.add(jAgregar);
 
@@ -92,10 +109,18 @@ public class Listar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 286, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 11, Short.MAX_VALUE)
+                .addComponent(jcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -144,6 +169,7 @@ public class Listar extends javax.swing.JFrame {
     private javax.swing.JMenu jModificar;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> jcategoria;
     private javax.swing.JMenuItem popEliminar;
     // End of variables declaration//GEN-END:variables
 

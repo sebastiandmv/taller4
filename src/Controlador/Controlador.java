@@ -76,6 +76,7 @@ public class Controlador extends JFrame implements ActionListener, MenuListener 
         listar.getjListar().addMenuListener(this);
         listar.getjEliminar().addMenuListener(this);
         listar.getjModificar().addMenuListener(this);
+        listar.getJcategoria().addActionListener(this);
         
         listar.getPopEliminar().addActionListener(this);
     }
@@ -130,7 +131,8 @@ public class Controlador extends JFrame implements ActionListener, MenuListener 
             
     }
 
-    public void actualizarMostrar() {
+    public void actualizarMostrar()  {
+        if(listar.getJcategoria().getSelectedItem().toString().equals("Mostrar Todos")){
         try {
             listar.getTblMostrar().setModel(m.Mostrar());
         } catch (ClassNotFoundException ex) {
@@ -138,8 +140,22 @@ public class Controlador extends JFrame implements ActionListener, MenuListener 
         } catch (SQLException ex) {
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
         }
+                }else{
+            
+                
+            try {
+                listar.getTblMostrar().setModel(m.MostrarCategoria(listar.getJcategoria().getSelectedItem().toString()));
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+             
+            }
+    
+        }
 
-    }
+    
 
     public int tieneazucar(){
         int a=0;
@@ -152,6 +168,11 @@ public class Controlador extends JFrame implements ActionListener, MenuListener 
     }
     
     public void actionPerformed(ActionEvent e) {
+        if(listar.getJcategoria()==e.getSource()){
+            actualizarMostrar();
+        }
+        
+        
         if(agregar.getBtnLimpiar()==e.getSource()){
             limpiarAgregar();
         }
