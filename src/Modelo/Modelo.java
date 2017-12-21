@@ -118,6 +118,31 @@ public class Modelo extends JFrame {
             return false;
         }
     }
+    
+     public boolean ModificarP() throws ClassNotFoundException, SQLException {
+        con = new Conexion();
+        String p="P";
+        try {
+
+            String query = " update pelicula set  nombre=concat('P',nombre)";
+            PreparedStatement stmt = con.connect().prepareStatement(query);
+
+            
+
+            stmt.executeUpdate();
+            System.out.println("Se ha agregado una P al comienzo de cada pelicula");
+            con.disconnect();
+            JOptionPane.showMessageDialog(this, "Se ha agregado una P al comienzo de cada pelicula");
+            return true;
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            JOptionPane.showMessageDialog(this, "Algo falló");
+            return false;
+        }
+    }
+    
+    
+    
 
     public boolean Buscar(int codigo, javax.swing.JTextField nombre, javax.swing.JTextField precio,javax.swing.JComboBox categoria,javax.swing.JRadioButton jSi,javax.swing.JRadioButton jNo) throws ClassNotFoundException, SQLException {
         con = new Conexion();

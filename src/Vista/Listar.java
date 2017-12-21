@@ -61,6 +61,8 @@ public class Listar extends javax.swing.JFrame {
         jConsulta3 = new javax.swing.JRadioButton();
         jConsulta4 = new javax.swing.JRadioButton();
         jConsulta5 = new javax.swing.JRadioButton();
+        jConsulta6 = new javax.swing.JRadioButton();
+        jComentarios = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jAgregar = new javax.swing.JMenu();
         jListar = new javax.swing.JMenu();
@@ -111,6 +113,12 @@ public class Listar extends javax.swing.JFrame {
         buttonGroup1.add(jConsulta5);
         jConsulta5.setText("5");
 
+        buttonGroup1.add(jConsulta6);
+        jConsulta6.setText("6");
+
+        jComentarios.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jComentarios.setForeground(new java.awt.Color(51, 51, 51));
+
         jAgregar.setText("Agregar");
         jMenuBar2.add(jAgregar);
 
@@ -133,37 +141,46 @@ public class Listar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jEjecutarConsulta)
-                .addGap(18, 18, 18)
-                .addComponent(jConsulta1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jConsulta2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jConsulta3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jConsulta4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jConsulta5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComentarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jEjecutarConsulta)
+                        .addGap(18, 18, 18)
+                        .addComponent(jConsulta1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jConsulta2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jConsulta3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jConsulta4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jConsulta5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jConsulta6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 8, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jEjecutarConsulta)
-                    .addComponent(jConsulta1)
-                    .addComponent(jConsulta2)
-                    .addComponent(jConsulta3)
-                    .addComponent(jConsulta4)
-                    .addComponent(jConsulta5))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jcategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jEjecutarConsulta)
+                        .addComponent(jConsulta1)
+                        .addComponent(jConsulta2)
+                        .addComponent(jConsulta3)
+                        .addComponent(jConsulta4)
+                        .addComponent(jConsulta5)
+                        .addComponent(jConsulta6)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComentarios, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -207,11 +224,13 @@ public class Listar extends javax.swing.JFrame {
     private javax.swing.JTable TblMostrar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JMenu jAgregar;
+    private javax.swing.JLabel jComentarios;
     private javax.swing.JRadioButton jConsulta1;
     private javax.swing.JRadioButton jConsulta2;
     private javax.swing.JRadioButton jConsulta3;
     private javax.swing.JRadioButton jConsulta4;
     private javax.swing.JRadioButton jConsulta5;
+    private javax.swing.JRadioButton jConsulta6;
     private javax.swing.JButton jEjecutarConsulta;
     private javax.swing.JMenu jEliminar;
     private javax.swing.JMenu jListar;
@@ -452,6 +471,34 @@ public class Listar extends javax.swing.JFrame {
      */
     public void setjConsulta5(javax.swing.JRadioButton jConsulta5) {
         this.jConsulta5 = jConsulta5;
+    }
+
+    /**
+     * @return the jConsulta6
+     */
+    public javax.swing.JRadioButton getjConsulta6() {
+        return jConsulta6;
+    }
+
+    /**
+     * @param jConsulta6 the jConsulta6 to set
+     */
+    public void setjConsulta6(javax.swing.JRadioButton jConsulta6) {
+        this.jConsulta6 = jConsulta6;
+    }
+
+    /**
+     * @return the jComentarios
+     */
+    public javax.swing.JLabel getjComentarios() {
+        return jComentarios;
+    }
+
+    /**
+     * @param jComentarios the jComentarios to set
+     */
+    public void setjComentarios(javax.swing.JLabel jComentarios) {
+        this.jComentarios = jComentarios;
     }
 
    

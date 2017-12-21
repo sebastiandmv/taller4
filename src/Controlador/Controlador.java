@@ -76,6 +76,12 @@ public class Controlador extends JFrame implements ActionListener, MenuListener 
         listar.getjModificar().addMenuListener(this);
         listar.getJcategoria().addActionListener(this);
         listar.getjEjecutarConsulta().addActionListener(this);
+        listar.getjConsulta1().addActionListener(this);
+        listar.getjConsulta2().addActionListener(this);
+        listar.getjConsulta3().addActionListener(this);
+        listar.getjConsulta4().addActionListener(this);
+        listar.getjConsulta5().addActionListener(this);
+        listar.getjConsulta6().addActionListener(this);
 
         listar.getPopEliminar().addActionListener(this);
     }
@@ -160,6 +166,28 @@ public class Controlador extends JFrame implements ActionListener, MenuListener 
     }
 
     public void actionPerformed(ActionEvent e) {
+        if(listar.getjConsulta1()==e.getSource()){
+            listar.getjComentarios().setText("Ingresar un registro a la tabla de película, considere la categoría drama.");
+        }
+         if(listar.getjConsulta2()==e.getSource()){
+            listar.getjComentarios().setText("Ingresar un registro a la tabla de película, considere la categoría como comedia.");
+        }
+          if(listar.getjConsulta3()==e.getSource()){
+            listar.getjComentarios().setText("Inserte un botón limpiar casillas, la cual debe limpiar todas las casillas y dejar el cursor en  la primera casilla para el ingreso de un código.");
+        }
+           if(listar.getjConsulta4()==e.getSource()){
+            listar.getjComentarios().setText("Listar los registros de las películas en que su categoría es romance. ");
+        }
+            if(listar.getjConsulta5()==e.getSource()){
+            listar.getjComentarios().setText("Eliminar película en que su precio es superior a $2.000");
+        }
+             if(listar.getjConsulta6()==e.getSource()){
+            listar.getjComentarios().setText("Modifique todos los nombres de película agregando un P al inicio de su nombre");
+        }
+        
+        
+        
+        
         if (listar.getjEjecutarConsulta() == e.getSource()) {
             if (listar.getjConsulta1().isSelected()) {
                 try {
@@ -192,6 +220,16 @@ public class Controlador extends JFrame implements ActionListener, MenuListener 
             if(listar.getjConsulta5().isSelected()){
                 try {
                     m.Eliminar2000();
+                    actualizarMostrar();
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if(listar.getjConsulta6().isSelected()){
+                try {
+                    m.ModificarP();
                     actualizarMostrar();
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
