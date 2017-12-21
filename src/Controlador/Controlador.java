@@ -186,6 +186,9 @@ public class Controlador extends JFrame implements ActionListener, MenuListener 
                 agregar.setVisible(true);
                 listar.setVisible(false);
             }
+            if(listar.getjConsulta4().isSelected()){
+                listar.getJcategoria().setSelectedItem("Romance");
+            }
         }
 
         if (listar.getJcategoria() == e.getSource()) {
