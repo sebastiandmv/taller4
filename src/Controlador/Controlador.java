@@ -51,6 +51,7 @@ public class Controlador extends JFrame implements ActionListener, MenuListener 
         agregar.getjListar().addMenuListener(this);
         agregar.getjEliminar().addMenuListener(this);
         agregar.getjModificar().addMenuListener(this);
+        agregar.getBtnLimpiar().addActionListener(this);
 
         agregar.getBtnAgregar().addActionListener(this);
 
@@ -171,7 +172,7 @@ public class Controlador extends JFrame implements ActionListener, MenuListener 
                 }
 
             }
-            if(listar.getjConsulta2().isSelected()){
+            if (listar.getjConsulta2().isSelected()) {
                 try {
                     m.Consulta2();
                 } catch (ClassNotFoundException ex) {
@@ -180,6 +181,10 @@ public class Controlador extends JFrame implements ActionListener, MenuListener 
                     Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 actualizarMostrar();
+            }
+            if(listar.getjConsulta3().isSelected()){
+                agregar.setVisible(true);
+                listar.setVisible(false);
             }
         }
 
@@ -426,6 +431,7 @@ public class Controlador extends JFrame implements ActionListener, MenuListener 
         agregar.getTxtCategoria().setSelectedItem(" ");
         agregar.getjSi().setSelected(false);
         agregar.getjNo().setSelected(false);
+        agregar.getTxtCodigo().requestFocus();
 
     }
 
