@@ -51,9 +51,13 @@ public class Listar extends javax.swing.JFrame {
 
         jPopupMenu1 = new javax.swing.JPopupMenu();
         popEliminar = new javax.swing.JMenuItem();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         TblMostrar = new javax.swing.JTable();
         jcategoria = new javax.swing.JComboBox<>();
+        jEjecutarConsulta = new javax.swing.JButton();
+        jConsulta1 = new javax.swing.JRadioButton();
+        jConsulta2 = new javax.swing.JRadioButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jAgregar = new javax.swing.JMenu();
         jListar = new javax.swing.JMenu();
@@ -85,7 +89,15 @@ public class Listar extends javax.swing.JFrame {
         TblMostrar.setRowHeight(13);
         jScrollPane1.setViewportView(TblMostrar);
 
-        jcategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mostrar Todos", "Acción", "Animada", "Ciencia Ficción", "Comedia", "Drama", "Musica", "Fantasía", "Romance", "Terror", "Suspense", " " }));
+        jcategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mostrar Todos", "Acción", "Animada", "Ciencia Ficción", "Comedia", "Drama", "Musica", "Fantasía", "Romance", "Terror", "Suspense" }));
+
+        jEjecutarConsulta.setText("Ejecutar Consulta");
+
+        buttonGroup1.add(jConsulta1);
+        jConsulta1.setText("1");
+
+        buttonGroup1.add(jConsulta2);
+        jConsulta2.setText("2");
 
         jAgregar.setText("Agregar");
         jMenuBar2.add(jAgregar);
@@ -110,15 +122,25 @@ public class Listar extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 759, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jEjecutarConsulta)
+                .addGap(18, 18, 18)
+                .addComponent(jConsulta1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jConsulta2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 11, Short.MAX_VALUE)
-                .addComponent(jcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 8, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jEjecutarConsulta)
+                    .addComponent(jConsulta1)
+                    .addComponent(jConsulta2))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -162,7 +184,11 @@ public class Listar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TblMostrar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JMenu jAgregar;
+    private javax.swing.JRadioButton jConsulta1;
+    private javax.swing.JRadioButton jConsulta2;
+    private javax.swing.JButton jEjecutarConsulta;
     private javax.swing.JMenu jEliminar;
     private javax.swing.JMenu jListar;
     private javax.swing.JMenuBar jMenuBar2;
@@ -304,6 +330,48 @@ public class Listar extends javax.swing.JFrame {
      */
     public void setPopEliminar(javax.swing.JMenuItem popEliminar) {
         this.popEliminar = popEliminar;
+    }
+
+    /**
+     * @return the jConsulta1
+     */
+    public javax.swing.JRadioButton getjConsulta1() {
+        return jConsulta1;
+    }
+
+    /**
+     * @param jConsulta1 the jConsulta1 to set
+     */
+    public void setjConsulta1(javax.swing.JRadioButton jConsulta1) {
+        this.jConsulta1 = jConsulta1;
+    }
+
+    /**
+     * @return the jConsulta2
+     */
+    public javax.swing.JRadioButton getjConsulta2() {
+        return jConsulta2;
+    }
+
+    /**
+     * @param jConsulta2 the jConsulta2 to set
+     */
+    public void setjConsulta2(javax.swing.JRadioButton jConsulta2) {
+        this.jConsulta2 = jConsulta2;
+    }
+
+    /**
+     * @return the jEjecutarConsulta
+     */
+    public javax.swing.JButton getjEjecutarConsulta() {
+        return jEjecutarConsulta;
+    }
+
+    /**
+     * @param jEjecutarConsulta the jEjecutarConsulta to set
+     */
+    public void setjEjecutarConsulta(javax.swing.JButton jEjecutarConsulta) {
+        this.jEjecutarConsulta = jEjecutarConsulta;
     }
 
    

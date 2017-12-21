@@ -40,6 +40,56 @@ public class Modelo extends JFrame {
             return false;
         }
     }
+    
+    public boolean Consulta1() throws ClassNotFoundException, SQLException {
+        con = new Conexion();
+        try {
+
+            String query = " insert into pelicula (codigo, nombre, precio, categoria,formato4k) values ("+Math.round((int) (Math.random() * 1000 + 13000))+",'Asistencia DuocUC 2017',"+Math.round((int) (Math.random() * 1000 + 1000))+",'Drama',"+Math.ceil((Math.random()))+")";
+            PreparedStatement stmt = con.connect().prepareStatement(query);
+            
+            
+
+            stmt.executeUpdate();
+            System.out.println("Ingreso exitoso");
+            con.disconnect();
+            JOptionPane.showMessageDialog(this, "Ingreso exitoso");
+            return true;
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            JOptionPane.showMessageDialog(this, "Algo falló");
+            return false;
+        }
+    }
+    
+    
+     public boolean Consulta2() throws ClassNotFoundException, SQLException {
+        con = new Conexion();
+        try {
+
+            String query = " insert into pelicula (codigo, nombre, precio, categoria,formato4k) values ("+Math.round((int) (Math.random() * 1000 + 13000))+",'Circo DuocUC 2017',"+Math.round((int) (Math.random() * 1000 + 1000))+",'Comedia',"+Math.ceil((Math.random()))+")";
+            PreparedStatement stmt = con.connect().prepareStatement(query);
+            
+            
+
+            stmt.executeUpdate();
+            System.out.println("Ingreso exitoso");
+            con.disconnect();
+            JOptionPane.showMessageDialog(this, "Ingreso exitoso");
+            return true;
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            JOptionPane.showMessageDialog(this, "Algo falló");
+            return false;
+        }
+    }
+
+    
+    
+    
+    
 
     public boolean Modificar(int codigo, String nombre, int precio, String categoria ,int formato4k) throws ClassNotFoundException, SQLException {
         con = new Conexion();
@@ -161,7 +211,7 @@ public class Modelo extends JFrame {
         Object[][] data = new String[registros][5];
         try {
             //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
-            PreparedStatement pstm = con.connect().prepareStatement("SELECT * FROM pelicula");
+            PreparedStatement pstm = con.connect().prepareStatement("SELECT * FROM pelicula order by categoria");
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {
