@@ -60,6 +60,7 @@ public class Listar extends javax.swing.JFrame {
         jConsulta2 = new javax.swing.JRadioButton();
         jConsulta3 = new javax.swing.JRadioButton();
         jConsulta4 = new javax.swing.JRadioButton();
+        jConsulta5 = new javax.swing.JRadioButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jAgregar = new javax.swing.JMenu();
         jListar = new javax.swing.JMenu();
@@ -107,6 +108,9 @@ public class Listar extends javax.swing.JFrame {
         buttonGroup1.add(jConsulta4);
         jConsulta4.setText("4");
 
+        buttonGroup1.add(jConsulta5);
+        jConsulta5.setText("5");
+
         jAgregar.setText("Agregar");
         jMenuBar2.add(jAgregar);
 
@@ -140,6 +144,8 @@ public class Listar extends javax.swing.JFrame {
                 .addComponent(jConsulta3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jConsulta4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jConsulta5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -154,7 +160,8 @@ public class Listar extends javax.swing.JFrame {
                     .addComponent(jConsulta1)
                     .addComponent(jConsulta2)
                     .addComponent(jConsulta3)
-                    .addComponent(jConsulta4))
+                    .addComponent(jConsulta4)
+                    .addComponent(jConsulta5))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -204,6 +211,7 @@ public class Listar extends javax.swing.JFrame {
     private javax.swing.JRadioButton jConsulta2;
     private javax.swing.JRadioButton jConsulta3;
     private javax.swing.JRadioButton jConsulta4;
+    private javax.swing.JRadioButton jConsulta5;
     private javax.swing.JButton jEjecutarConsulta;
     private javax.swing.JMenu jEliminar;
     private javax.swing.JMenu jListar;
@@ -430,6 +438,20 @@ public class Listar extends javax.swing.JFrame {
      */
     public void setjConsulta4(javax.swing.JRadioButton jConsulta4) {
         this.jConsulta4 = jConsulta4;
+    }
+
+    /**
+     * @return the jConsulta5
+     */
+    public javax.swing.JRadioButton getjConsulta5() {
+        return jConsulta5;
+    }
+
+    /**
+     * @param jConsulta5 the jConsulta5 to set
+     */
+    public void setjConsulta5(javax.swing.JRadioButton jConsulta5) {
+        this.jConsulta5 = jConsulta5;
     }
 
    

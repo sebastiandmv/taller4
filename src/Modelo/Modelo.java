@@ -45,7 +45,7 @@ public class Modelo extends JFrame {
         con = new Conexion();
         try {
 
-            String query = " insert into pelicula (codigo, nombre, precio, categoria,formato4k) values ("+Math.round((int) (Math.random() * 1000 + 13000))+",'Asistencia DuocUC 2017',"+Math.round((int) (Math.random() * 1000 + 1000))+",'Drama',"+Math.ceil((Math.random()))+")";
+            String query = " insert into pelicula (codigo, nombre, precio, categoria,formato4k) values ("+Math.round((int) (Math.random() * 1000 + 13000))+",'Asistencia DuocUC 2017',"+Math.round((int) (Math.random() * 1000 + 1500))+",'Drama',"+Math.ceil((Math.random()))+")";
             PreparedStatement stmt = con.connect().prepareStatement(query);
             
             
@@ -68,7 +68,7 @@ public class Modelo extends JFrame {
         con = new Conexion();
         try {
 
-            String query = " insert into pelicula (codigo, nombre, precio, categoria,formato4k) values ("+Math.round((int) (Math.random() * 1000 + 13000))+",'Circo DuocUC 2017',"+Math.round((int) (Math.random() * 1000 + 1000))+",'Comedia',"+Math.ceil((Math.random()))+")";
+            String query = " insert into pelicula (codigo, nombre, precio, categoria,formato4k) values ("+Math.round((int) (Math.random() * 1000 + 13000))+",'Circo DuocUC 2017',"+Math.round((int) (Math.random() * 1000 + 1500))+",'Comedia',"+Math.ceil((Math.random()))+")";
             PreparedStatement stmt = con.connect().prepareStatement(query);
             
             
@@ -190,6 +190,27 @@ public class Modelo extends JFrame {
             JOptionPane.showMessageDialog(this, "Algo falló");
         }
     }
+    
+    public void Eliminar2000() throws ClassNotFoundException, SQLException {
+        con = new Conexion();
+        try {
+
+            String query = " delete from pelicula where precio>2000";
+            PreparedStatement stmt = con.connect().prepareStatement(query);
+          
+
+            stmt.executeUpdate();
+            System.out.println("Los registros con precio sobre 2000 fueron eliminados");
+            con.disconnect();
+            JOptionPane.showMessageDialog(this, "Los registros con precio sobre 2000 fueron eliminados");
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            JOptionPane.showMessageDialog(this, "Algo falló");
+        }
+    }
+    
+    
+    
 
     public DefaultTableModel Mostrar() throws ClassNotFoundException, SQLException {
         con = new Conexion();
